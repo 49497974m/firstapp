@@ -1,0 +1,16 @@
+  <div class="row margin: auto">
+    <div class="col s12 m6">
+      <div class="card blue-grey">
+        <div class="card-content white-text">
+          <p><%= tweet.text %></p>
+        </div>
+          <div class="card-action blue-grey darken-1 right-align">
+            <% if user_signed_in? && current_user.id == tweet.user_id %>
+              <%= link_to "delete", "/tweets/#{tweet.id}", method: :delete, class: "red-text text-lighten-2" %>
+              <%= link_to "edit", "/tweets/#{tweet.id}/edit", method: :get, class: "red-text text-lighten-2" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
