@@ -7,6 +7,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+      <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
     <script
     src="https://code.jquery.com/jquery-3.4.1.js"
@@ -14,22 +19,23 @@
     crossorigin="anonymous"></script>
   </head>
 
-  <body>
-    <nav class="#18ffff cyan accent-2">
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Firstapp</a>
+  <body class="center-align">
+   <nav class="#000000 black">
+    <div class="nav-wrapper center-align">
+      <a href="/" class="brand-logo">Firstapp</a>
       <% if user_signed_in? %>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-        <li><a href="tweets/new">NEW</a></li>
-      </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+          <li><a href="/tweets/new">New</a></li>
+        </ul>
       <% else %>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><%= link_to "Sign In", new_user_session_path %></li>
-        <li><%= link_to "Sign Up", new_user_registration_path %></li>
-      </ul>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        </ul>
+      <% end %>
     </div>
-    </nav>
+  </nav>
     <%= yield %>
   </body>
 </html>
