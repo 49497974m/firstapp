@@ -12,7 +12,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(5).order("created_at DESC")
   end
-  
+
   def destroy
     tweet = Tweet.find(params[:id])
     tweet.destroy if tweet.user_id == current_user.id
